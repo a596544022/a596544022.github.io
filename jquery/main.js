@@ -26,6 +26,7 @@ $(document).ready(function () {
     }
 );
 $(document).ready(function () {
+    var sl=["01.jpg","02.jpg","03.jpg","04.jpg","05.jpg","06.jpg","07.jpg","08.jpg","09.jpg","10.jpg"];
         $(".cont").on("click", "img", function () {
                 var he = $(window).height() - 150;
                 $("#cav-img").css({"height": he + "px"});
@@ -41,13 +42,67 @@ $(document).ready(function () {
                 );
                 if (oimg.complete = true) {
                     oimg.onload = function () {
-                        console.log(oimg.complete);
                         $("#qq").attr("src", "img/002/list" + strs[1]);
                         $("#cav1").css({
                                 "display": "none"
                             }
                         );
                     }
+                    var num=0;
+                    document.body.addEventListener("DOMMouseScroll", function zc(event) {event = event || window.event;
+                        var ob=$("#qq").attr("src");
+                        strs = str.split("list");
+                        var oimg = new Image();
+                        if(event.wheelDelta < 0){
+                            //向下
+                            if(num>=9){alert("已经是最后一张了")}
+                            else{
+                                oimg.src = "img/002/list" + sl[num+1];
+                                $("#cav1").css({"display": "block"});
+                                if (oimg.complete = true) {
+                                    oimg.onload = function () {
+                                        $("#qq").attr("src", "img/002/list" + sl[num+1]);
+                                        num=num+1;
+                                        $("#cav1").css({"display": "none" }); }}}}
+                        else{
+                            //向上
+                            if(num<=0){alert("已经是第一张了");}
+                            else{
+                                oimg.src = "img/002/list" + sl[num-1];
+                                $("#cav1").css({"display": "block"});
+                                if (oimg.complete = true) {
+                                    oimg.onload = function () {
+                                        $("#qq").attr("src", "img/002/list" + sl[num-1]);
+                                        num=num-1;
+                                        $("#cav1").css({"display": "none"}); }}}}});
+                    document.body.onmousewheel = function(event) {
+                        event = event || window.event;
+                        var ob=$("#qq").attr("src");
+                        strs = str.split("list");
+                        var oimg = new Image();
+                        if(event.wheelDelta < 0){
+                            //向下
+                            if(num>=9){alert("已经是最后一张了")}
+                            else{
+                                oimg.src = "img/002/list" + sl[num+1];
+                                $("#cav1").css({"display": "block" });
+                                if (oimg.complete = true) {
+                                    oimg.onload = function () {
+                                        $("#qq").attr("src", "img/002/list" + sl[num+1]);
+                                        num=num+1;
+                                        $("#cav1").css({"display": "none" });}}}}
+                        else{
+                            //向上
+                            if(num<=0){alert("已经是第一张了");}
+                            else{
+                                oimg.src = "img/002/list" + sl[num-1];
+                                $("#cav1").css({"display": "block" });
+                                if (oimg.complete = true) {
+                                    oimg.onload = function () {
+                                        $("#qq").attr("src", "img/002/list" + sl[num-1]);
+                                        num=num-1;
+                                        $("#cav1").css({"display": "none" });}}}}};
+
                 }
             }
         );
@@ -56,6 +111,9 @@ $(document).ready(function () {
 $(document).ready(function () {
         $(".close").click(
             function () {
+                    document.body.onmousewheel=null;
+                if (document.body.DOMMouseScroll){
+                document.body.removeEventListener("DOMMouseScroll",zc());}
                 $("#cav-img").css({
                         "display": "none"
                     }
