@@ -168,11 +168,11 @@ body {
 header {
     height: 100px;
     width: 100%;
-    position: absolute;
-    top: 0;
-    border-bottom: 2px solid #FFF;
-    z-index: 1;
+    position: relative;
+    top: 0; //  border_bottom: 2px solid #FFF;
+    z-index: 99999;
     background: rgba(0,0,0,.4);
+    min-width: 900px;
     .header {
         width: 60%;
         margin: 0 auto;
@@ -185,19 +185,21 @@ header {
         float: left;
         line-height: 100px;
         position: relative;
+        margin: 0 20px;
         a {
             color: #DADADA;
-            display: inline-block;
+            display: inline_block;
             height: 100%;
-            padding: 0 20px;
-            font-size: 25px;
+            width: 100%;
+            font-size: 20px;
+            padding: 0 5px;
         }
         a:hover {
             color: #DADADA;
         }
     }
 }
-.page-bg {
+.page_bg {
     position: absolute;
     top: 0;
     left: 0;
@@ -209,28 +211,93 @@ header {
     background: url("../img/bg1.jpg") 50%;
     background-size: cover;
 }
+.bg2 {
+    overflow: hidden;
+    background: url("../img/bg2.jpg") 50%;
+    background-size: cover;
+}
+.bg3 {
+    overflow: hidden;
+    background: url("../img/bg3.jpg") 50%;
+    background-size: cover;
+}
+.bg4 {
+    overflow: hidden;
+    background: url("../img/bg4.jpg") 50%;
+    background-size: cover;
+}
 .bg1:after {
     content: "";
-    filter:url("blur.svg#blur");
     /* FireFox, Chrome, Opera */
     -webkit-filter: blur(5px);
     /* Chrome, Opera */
-    -moz-filter: blur(2px);
-    -ms-filter: blur(2px);
-    filter:blur(2px);
+    -moz-filter: blur(5px);
+    -ms-filter: blur(5px);
+    filter:blur(5px);
     background: url("../img/bg1.jpg") 50%;
     background-size: cover;
-    position: absolute;
+    position: fixed;
     top: 0;
     right: 0;
     bottom: 0;
     left: 0;
     margin: -30px;
 }
-.b-line {
+.bg2:after {
+    content: "";
+    /* FireFox, Chrome, Opera */
+    -webkit-filter: blur(5px);
+    /* Chrome, Opera */
+    -moz-filter: blur(5px);
+    -ms-filter: blur(5px);
+    filter:blur(5px);
+    background: url("../img/bg2.jpg") 50%;
+    background-size: cover;
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    margin: -30px;
+}
+.bg3:after {
+    content: "";
+    /* FireFox, Chrome, Opera */
+    -webkit-filter: blur(5px);
+    /* Chrome, Opera */
+    -moz-filter: blur(5px);
+    -ms-filter: blur(5px);
+    filter:blur(5px);
+    background: url("../img/bg3.jpg") 50%;
+    background-size: cover;
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    margin: -30px;
+}
+.bg4:after {
+    content: "";
+    /* FireFox, Chrome, Opera */
+    -webkit-filter: blur(5px);
+    /* Chrome, Opera */
+    -moz-filter: blur(5px);
+    -ms-filter: blur(5px);
+    filter:blur(5px);
+    background: url("../img/bg4.jpg") 50%;
+    background-size: cover;
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    margin: -30px;
+}
+.b_line {
     position: absolute;
     width: 100%;
-    bottom: 4px;
+    bottom: 3px;
     left: 0;
     i {
         margin: 0 auto;
@@ -251,7 +318,7 @@ header {
     width: 100%;
 }
 //首页
-.in-c {
+.in_c {
     width: 190px;
     position: absolute;
     z-index: 5;
@@ -266,7 +333,7 @@ header {
     cursor: default;
     span {
         font-size: 40px;
-        color: #DADADA;
+        color: #717171;
         cursor: default;
         filter:url("blur.svg#blur");
         /* FireFox, Chrome, Opera */
@@ -285,4 +352,67 @@ header {
         -ms-filter: blur(0px);
         filter:blur(0px);
     }
+}
+//关于我
+.ab_in {
+    position: relative;
+    width: 70%;
+    margin: 0 auto;
+    .person_resume {
+        color: #FFFFFF;
+        margin-top: 5px;
+        .top {
+            font-size: 25px;
+            font-weight: 700;
+            padding: 5px 15px;
+            width: 120px;
+            text-align: center;
+            background: rgba(0,0,0,.2);
+            border-radius: 10px;
+            margin-left: 20px;
+        }
+        .inner {
+            margin-top: 15px;
+            min-width: 1100px;
+            .list {
+                width: 30%;
+            min-width: 310px;
+                
+                background: rgba(0,0,0,.2);
+                border-radius: 10px;
+                min-height: 400px;
+                margin: 0 1.5% 30px;
+                .title {
+                    text-align: center;
+                    font-size: 22px;
+                    margin-top: 15px;
+                    span {
+                        font-size: 25px;
+                        font-weight: 700;
+                    }
+                }
+                .inner_text {
+                    margin: 15px 0;
+                    li {
+                        margin-left: 10px;
+                        font-size: 16px;
+                        line-height: 30px;
+                    }
+                }
+                .time{
+                    text-align: right;
+                    padding-right: 5px;
+                }
+            }
+        }
+    }
+}
+//美图赏析
+.pic_in {
+    z-index: 9;
+    position: fixed; //  height: 100%;
+    top: 100px;
+    bottom: 0; //  padding_top:100px ;
+    width: 600px; //  margin: _100px auto 0;
+    overflow-y: scroll;
 }
