@@ -165,12 +165,31 @@ body {
 .clear {
     clear: both;
 }
+
+#cav {
+    overflow: hidden;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 999;
+    background-color: #000000;
+    color: #FFFFFF;
+    img{
+        position: absolute;
+        z-index: 9999;
+         top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    }
+}
 header {
     height: 100px;
     width: 100%;
     position: relative;
     top: 0; //  border_bottom: 2px solid #FFF;
-    z-index: 99999;
+    z-index: 998;
     background: rgba(0,0,0,.4);
     min-width: 900px;
     .header {
@@ -193,9 +212,14 @@ header {
             width: 100%;
             font-size: 20px;
             padding: 0 5px;
+            transition: color 0.8s;
+        -moz-transition: color 0.8s;
+        /* Firefox 4 */
+        -webkit-transition: color 0.8s;
+        /* Safari and Chrome */
         }
         a:hover {
-            color: #DADADA;
+            color: #FFFFFF;
         }
     }
 }
@@ -310,8 +334,6 @@ header {
         /* Firefox 4 */
         -webkit-transition: width 0.8s;
         /* Safari and Chrome */
-        -o-transition: width 0.8s;
-        /* Opera */
     }
 }
 .nav:hover i {
@@ -342,6 +364,11 @@ header {
         -moz-filter: blur(2px);
         -ms-filter: blur(2px);
         filter:blur(2px);
+        transition: filter 0.8s;
+        -moz-transition: filter 0.8s;
+        /* Firefox 4 */
+        -webkit-transition: -webkit-filter 0.8s;
+        /* Safari and Chrome */
     }
     span:hover {
         filter:url("blur.svg#blur");
@@ -374,14 +401,13 @@ header {
         .inner {
             margin-top: 15px;
             min-width: 1100px;
-        .my_n{
-//          margin-left: 25px;
-            margin:0 0 10px 25px;
-        }
+            .my_n {
+                //          margin-left: 25px;
+                margin: 0 0 10px 25px;
+            }
             .list {
                 width: 30%;
-            min-width: 310px;
-                
+                min-width: 310px;
                 background: rgba(0,0,0,.2);
                 border-radius: 10px;
                 min-height: 400px;
@@ -403,7 +429,7 @@ header {
                         line-height: 30px;
                     }
                 }
-                .time{
+                .time {
                     text-align: right;
                     padding-right: 5px;
                 }
@@ -412,11 +438,73 @@ header {
     }
 }
 //美图赏析
-.pic_in {
-    z-index: 9;
-    position: fixed; //  height: 100%;
-    top: 100px;
-    bottom: 0; //  padding_top:100px ;
-    width: 600px; //  margin: _100px auto 0;
-    overflow-y: scroll;
+//.pic_in {
+//  z-index: 9;
+//  position: fixed; //  height: 100%;
+//  top: 100px;
+//  bottom: 0; //  padding_top:100px ;
+//  width: 600px; //  margin: _100px auto 0;
+//  overflow-y: scroll;
+//}
+//
+//职业技能
+.skill_c {
+    position: absolute;
+    z-index: 5;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    width: 80%;
+    .list {
+        float: left;
+        padding: 10px;
+        width: 18%;
+        color: #FFFFFF;
+        .top {
+            text-align: center;
+            font-size: 25px;
+            span {
+                background: rgba(0,0,0,.3);
+                padding: 5px 30px;
+                border-radius: 3px;
+                font-weight: 700;
+                min-width: 80px;
+                display: inline-block;
+            }
+        }
+        .middle {
+            background: rgba(0,0,0,.3);
+            margin-top: 20px;
+            padding: 5px 10px;
+            font-size: 16px;
+            border-radius: 5px;
+            min-height: 200px;
+            cursor: pointer;
+            filter:url("blur.svg#blur");
+            /* FireFox, Chrome, Opera */
+            -webkit-filter: blur(3px);
+            /* Chrome, Opera */
+            -moz-filter: blur(3px);
+            -ms-filter: blur(3px);
+            filter:blur(3px);
+            transition: filter 0.8s;
+            -moz-transition: filter 0.8s;
+            /* Firefox 4 */
+            -webkit-transition: -webkit-filter 0.8s;
+            /* Safari and Chrome */
+            li {
+                float: left;
+                margin: 2px 0;
+            }
+        }
+        .middle:hover {
+            filter:url("blur.svg#blur");
+            /* FireFox, Chrome, Opera */
+            -webkit-filter: blur(0px);
+            /* Chrome, Opera */
+            -moz-filter: blur(0px);
+            -ms-filter: blur(0px);
+            filter:blur(0px);
+        }
+    }
 }
